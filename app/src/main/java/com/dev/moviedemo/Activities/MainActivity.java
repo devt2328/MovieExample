@@ -14,7 +14,6 @@ import androidx.appcompat.widget.SearchView;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.dev.moviedemo.Adapters.MovielistAdapter;
 import com.dev.moviedemo.Interfaces.ClickListener;
 import com.dev.moviedemo.Model.MovieList.ResponseMovieList;
