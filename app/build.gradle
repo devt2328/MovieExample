@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.dev.moviedemo"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true //For use of verctor icon
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            resValue "string", "BASE_URL", "https://api.themoviedb.org/3/movie/" //Base Url of api
+            resValue "string", "API_KEY", "23b4f64108fab8383166a02b93d9382e"  //Api key
+            resValue "string", "POSTER_URL", "https://image.tmdb.org/t/p/w500/" //Base url for image path
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            resValue "string", "BASE_URL", "https://api.themoviedb.org/3/movie/"
+            resValue "string", "API_KEY", "23b4f64108fab8383166a02b93d9382e"
+            resValue "string", "POSTER_URL", "https://image.tmdb.org/t/p/w500/"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0' //Recyclerview for listing data
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0' //Retrofit for Api call
+    implementation 'com.google.code.gson:gson:2.8.5' //For Api request logging & convert to gson
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0' //Image library for display image
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6' //Used for different size of layout as per screen size
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
